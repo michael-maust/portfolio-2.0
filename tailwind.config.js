@@ -129,6 +129,9 @@ module.exports = {
     },
   },
   plugins: [
+    require("daisyui"),
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/line-clamp"),
     plugin(({addBase, theme}) => {
       addBase({
         // or whichever color you'd like

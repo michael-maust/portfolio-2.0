@@ -7,7 +7,7 @@ import Logo from 'public/logo.svg'
 function Header() {
 	return (
 		<header className="border-b border-gray-300">
-			<nav className=''>
+			<nav className='flex justify-between items-center'>
 				<Image src={Logo} alt='Logo' />
 				<ul className="flex flex-wrap text-xl">
 					<li className="mr-6">
