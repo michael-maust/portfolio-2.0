@@ -12,7 +12,7 @@ const Main = ({ meta, children }: MainProps) => (
   <div className="w-full px-1 text-gray-700 antialiased">
     {meta}
 
-    <div className="mx-auto max-w-screen-md">
+    <div className="mx-auto max-w-screen-xl relative">
       <Header />
 
       <main className="content py-5 text-xl">{children}</main>
