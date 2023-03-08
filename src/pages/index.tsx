@@ -1,5 +1,5 @@
-import { Meta } from '@/layouts/Meta';
-import { Main } from '@/templates/Main';
+import { Meta } from '@/components/Layout/Meta';
+import { Main } from '@/components/Layout/Main';
 
 const Index = () => {
   return (
@@ -11,7 +11,10 @@ const Index = () => {
         />
       }
     >
-      <div className="">TEST</div>
+      <div id='home' className="bg-lightgray text-tan h-[1000px] mt-[1000px]">Home</div>
+      <div id='about' className="bg-lightgray text-tan h-[1000px] mt-[1000px]">About</div>
+      <div id='github' className="bg-lightgray text-tan h-[1000px] mt-[1000px]">Github</div>
+      <div id='blog' className="bg-lightgray text-tan h-[1000px] mt-[1000px]">Blog</div>
     </Main>
   );
 };
