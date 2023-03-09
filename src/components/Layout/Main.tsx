@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import type { ReactNode } from 'react';
 import Footer from './Footer';
 import Header from './Header';
@@ -9,16 +8,16 @@ type MainProps = {
 };
 
 const Main = ({ meta, children }: MainProps) => (
-  <div className="w-full px-1 text-gray-700 antialiased">
+  <div className="w-full text-gray-700 antialiased relative">
     {meta}
 
-    <div className="mx-auto max-w-screen-xl relative">
-      <Header />
 
-      <main className="content py-5 text-xl">{children}</main>
+    <Header />
 
-      <Footer />
-    </div>
+
+    <main className="content py-5 text-xl">{children}</main>
+
+    <Footer />
   </div>
 );
 
