@@ -1,21 +1,42 @@
 import Image from 'next/image'
 
 import welcomePortrait from 'public/images/welcome-portrait.svg'
+import { useState } from 'react'
+
 
 
 const TITLES = ['👨‍💻 software developer', '🛠️ engineer', '💸 entrepreneur']
+const style = "bg-gray px-2 rounded-lg shadow-sm h-[40px]"
+
+
+
+
 
 
 function RotatingBadges() {
-	return (
-		<div className="h-[40px] flex flex-col gap-1 overflow-hidden">
+	const [activeIndex, setActiveIndex] = useState(0)
 
-			{TITLES.map((title) => (
+
+	const handleCycle = () => {
+
+
+		console.log('cycle')
+	}
+
+	return (
+		<div className="flex flex-col gap-1 w-full">
+
+			<button className="bg-slate-600 rounded-md" onClick={handleCycle}>Cycle</button>
+
+			<span id='text-cycle' className='w-full bg-red-200'></span>
+
+
+			{/* {TITLES.map((title) => (
 				// TODO: Add infinite to animation and fix keyframes
-				<div key={title} className="bg-gray px-2 rounded-lg shadow-sm h-[40px]" style={{ 'animation': 'spin_words 3s' }}>
+				<div key={title} className={style}>
 					<p className="">{title}</p>
 				</div>
-			))}
+			))} */}
 		</div>
 	)
 

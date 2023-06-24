@@ -1,0 +1,29 @@
+@keyframes cycle {
+  0% {
+    content: 'Corgi';
+    transform: translateX(0%);
+  }
+  25% {
+    content: 'Shih Tzu';
+    transform: translateX(100px);
+  }
+  50% {
+    content: 'Pug';
+    transform: translateX(200px);
+  }
+  75% {
+    content: 'Dachshund';
+    transform: translateX(300px);
+  }
+  100% {
+    content: 'Corgi';
+    transform: translateX(400px);
+  }
+}
+
+#text-cycle:after {
+  animation-name: cycle;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  content: '';
+}
