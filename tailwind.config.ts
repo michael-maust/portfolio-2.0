@@ -1,8 +1,11 @@
-const plugin = require('tailwindcss/plugin')
+import type { Config } from 'tailwindcss'
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+const config: Config = {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     fontSize: {
       xs: '0.75rem',
@@ -177,14 +180,14 @@ module.exports = {
   },
 
   plugins: [
-    require('daisyui'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),
-    plugin(({ addBase, theme }) => {
-      addBase({
-        // or whichever color you'd like
-        html: { color: theme('colors.tan') },
-      })
-    }),
+    // plugin(({ addBase, theme }) => {
+    //   addBase({
+    //     // or whichever color you'd like
+    //     html: { color: theme('colors.tan') },
+    //   })
+    // }),
   ],
 }
+export default config

@@ -1,7 +1,29 @@
 {
+	"arrowParens": "always",
+	"bracketSameLine": false,
+	"bracketSpacing": true,
+	"embeddedLanguageFormatting": "auto",
+	"endOfLine": "lf",
+	"htmlWhitespaceSensitivity": "css",
+	"jsxSingleQuote": true,
+	"printWidth": 100,
+	"proseWrap": "never",
+	"quoteProps": "consistent",
 	"semi": false,
-	"trailingComma": "es5",
 	"singleQuote": true,
-	"tabWidth": 2,
-	"useTabs": false
-  }
+	"tabWidth": 4,
+	"trailingComma": "all",
+	"useTabs": true,
+	"plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+	"importOrderTypeScriptVersion": "4.4.0",
+	"importOrder": [
+		"^(react/(.*)$)|^(react$)|^(react-native(.*)$)",
+		"^(next/(.*)$)|^(next$)",
+		"^(expo(.*)$)|^(expo$)",
+		"^@congenius/(.*)$",
+		"<THIRD_PARTY_MODULES>",
+		"^clsx/(.*)$",
+		"twin.macro",
+		"^[./]"
+	]
+}

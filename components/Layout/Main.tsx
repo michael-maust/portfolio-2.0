@@ -11,9 +11,7 @@ const Main = ({ meta, children }: MainProps) => (
   <div className="w-full text-gray-700 antialiased relative">
     {meta}
 
-
     <Header />
-
 
     <main className="content py-5 text-xl">{children}</main>
 
