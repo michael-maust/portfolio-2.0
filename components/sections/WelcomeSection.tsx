@@ -2,7 +2,9 @@
 import Image from 'next/image'
 
 import welcomePortrait from 'public/images/welcome-portrait.svg'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { PAGE_ANCHORS } from '../Layout/Header'
+import useSetActiveAnchor from '@/hooks/useSetActiveAnchor'
 
 const TITLES = ['👨‍💻 software developer', '🛠️ engineer', '💸 entrepreneur']
 const style = "bg-gray px-2 rounded-lg shadow-sm h-[40px]"
@@ -32,9 +34,11 @@ function RotatingBadges() {
 }
 
 function WelcomeSection() {
+	const ref = useRef(null)
+	useSetActiveAnchor(ref, PAGE_ANCHORS.Welcome)
 
 	return (
-		<div id='welcome' className='mt-[100px] w-full flex justify-center items-center gap-6'>
+		<div ref={ref} id={PAGE_ANCHORS.Welcome} className='pt-[120px] w-full flex justify-center items-center gap-6'>
 			<div className="">
 
 				<Image src={welcomePortrait} alt='welcome portrait' />

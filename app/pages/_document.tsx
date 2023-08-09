@@ -7,7 +7,7 @@ class MyDocument extends Document {
   // eslint-disable-next-line class-methods-use-this
   render() {
     return (
-      <Html lang={AppConfig.locale} >
+      <Html lang={AppConfig.locale} className='scroll-smooth'>
         <Head>
           <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet" />

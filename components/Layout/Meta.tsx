@@ -22,18 +22,6 @@ const Meta = (props: IMetaProps) => {
           content="width=device-width,initial-scale=1"
           key="viewport"
         />
-        <link
-          rel="apple-touch-icon"
-          href="/apple-icon?<generated>"
-          type="image/<generated>"
-          sizes="<generated>"
-        />
-
-        <link
-          rel="icon"
-          href={`public/favicon.ico`}
-          key="favicon"
-        />
       </Head>
       <NextSeo
         title={props.title}

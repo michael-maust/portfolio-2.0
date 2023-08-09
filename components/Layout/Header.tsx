@@ -1,42 +1,56 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import Logo from 'public/logo.svg'
 import downloadCloud from 'public/icons/download-cloud.svg'
+import useSetActiveAnchor from '@/hooks/useSetActiveAnchor'
+import { useEffect, useRef, useState } from 'react'
+import { useParams, usePathname, useRouter, useSelectedLayoutSegment } from 'next/navigation'
+import { cn } from '@/utils/general'
 
-const PAGE_ANCHORS = {
-	About: '#about',
-	Projects: '#projects',
-	Experience: '#experience',
-	Contact: '#contact',
+export enum PAGE_ANCHORS {
+	Welcome = 'welcome',
+	About = 'about',
+	Projects = 'projects',
+	Experience = 'experience',
+	Contact = 'contact',
 }
 
-
-
 function Header() {
+	const params = useParams()
+	const [activeHash, setActiveHash] = useState<PAGE_ANCHORS | null>(null)
+
+	useEffect(() => {
+		setActiveHash(window.location.hash.slice(1) as PAGE_ANCHORS)
+	}, [params]);
+
 	return (
 		<header className='fixed flex justify-center items-center top-3 inset right-auto w-full'>
-			<nav className='flex justify-between items-center p-3 bg-gray max-w-screen-xl w-full shadow-md rounded-[20px]'>
+			<nav className='flex justify-between items-center p-3 bg-gray max-w-screen-xl w-full border-2 border-gray-900 shadow-lg rounded-[20px]'>
 
-				<Link
-					scroll={false}
-					href='#welcome'
+				<a
+					href={`#${PAGE_ANCHORS.Welcome}`}
 					className="cursor-pointer"
 				>
 					<Image src={Logo} alt='Logo' className='h-10' />
-				</Link>
+				</a>
 
-
-				<ul className="flex flex-wrap text-xl gap-8">
-					{Object.entries(PAGE_ANCHORS).map(([key, value]) => (
-						<li key={key}>
-							<Link
-								scroll={false}
-								href={value}
-								className="border-none text-tan hover:text-primary uppercase font-medium cursor-pointer transition-colors duration-300"
-							>
-								{key}
-							</Link>
-						</li>))}
+				<ul className="flex flex-wrap text-xl gap-3">
+					{Object.entries(PAGE_ANCHORS).map(([key, value]) => {
+						const isActive = activeHash === value
+						const style = cn('opacity-0 transition-opacity duration-300 text-primary font-bold', isActive && "transition-opacity duration-500 delay-300 opacity-100")
+						return (
+							<li key={key}>
+								<a
+									href={`#${value}`}
+									className={cn("border-none text-tan hover:text-primary font-medium cursor-pointer transition-colors duration-300",
+										isActive && "transition-colors duration-300"
+									)}
+								>
+									<span className={style}>{`< `}</span> {key}<span className={style}>{` />`}</span>
+								</a>
+							</li>)
+					})}
 
 				</ul>
 

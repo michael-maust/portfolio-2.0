@@ -2,6 +2,12 @@ import { Meta } from '@/components/Layout'
 import { Main } from '@/components/Layout/Main'
 import WelcomeSection from '@/components/sections/WelcomeSection'
 import Image from 'next/image'
+import { useIntersectionObserver } from '@react-hookz/web';
+import { PAGE_ANCHORS } from '@/components/Layout/Header';
+import About from '@/components/sections/About';
+import Projects from '@/components/sections/Projects';
+import Experience from '@/components/sections/Experience';
+import Contact from '@/components/sections/Contact';
 
 export default function Home() {
   return (
@@ -14,10 +20,10 @@ export default function Home() {
       }
     >
       <WelcomeSection />
-      <div id='about' className="bg-gray text-tan h-[1000px] mt-[500px] p-3">About</div>
-      <div id='projects' className="bg-gray text-tan h-[1000px] mt-[500px] p-3">Projects</div>
-      <div id='experience' className="bg-gray text-tan h-[1000px] mt-[500px] p-3">Experience</div>
-      <div id='contact' className="bg-gray text-tan h-[1000px] mt-[500px] p-3">Contact</div>
+      <About />
+      <Projects />
+      <Experience />
+      <Contact />
     </Main>
   )
 }

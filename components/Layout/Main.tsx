@@ -13,7 +13,7 @@ const Main = ({ meta, children }: MainProps) => (
 
     <Header />
 
-    <main className="content py-5 text-xl">{children}</main>
+    {children}
 
     <Footer />
   </div>
