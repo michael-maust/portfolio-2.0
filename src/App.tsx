@@ -1,9 +1,10 @@
-import { Header } from './components/Navigation/Header.tsx';
+import { Header } from 'components/Navigation/Header';
 
 function App() {
   return (
-    <div className="bg-green">
+    <div className="relative w-full">
       <Header />
+      <div className="h-[2000px]">Page Content here</div>
       Hello world
     </div>
   );
