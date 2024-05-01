@@ -5,11 +5,7 @@ export function Experience() {
   const ref = useRef(null);
 
   return (
-    <div
-      ref={ref}
-      id={Section.Experience}
-      className="bg-gray text-tan h-[1000px] mt-[500px] p-3"
-    >
+    <div ref={ref} id={Section.Experience} className="text-tan h-[1000px] p-3">
       Experience
     </div>
   );

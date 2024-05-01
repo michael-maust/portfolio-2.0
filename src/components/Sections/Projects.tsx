@@ -5,11 +5,7 @@ export function Projects() {
   const ref = useRef(null);
 
   return (
-    <div
-      ref={ref}
-      id={Section.Projects}
-      className="bg-gray text-tan h-[1000px] mt-[500px] p-3"
-    >
+    <div ref={ref} id={Section.Projects} className="text-tan h-[1000px] p-3">
       Projects
     </div>
   );
