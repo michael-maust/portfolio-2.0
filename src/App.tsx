@@ -1,19 +1,27 @@
-import { Header } from 'components/Navigation/Header';
-import * as Sections from 'components/Sections';
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider, createRouter } from '@tanstack/react-router';
 
-function App() {
-  return (
-    <div className="flex flex-col items-center relative w-full">
-      <Header />
-      <div className="pt-72 px-12 max-w-screen-lg w-full">
-        <Sections.Welcome />
-        <Sections.About />
-        <Sections.Experience />
-        <Sections.Projects />
-        <Sections.Contact />
-      </div>
-    </div>
-  );
+// Import the generated route tree
+import { routeTree } from './routeTree.gen';
+
+// Create a new router instance
+const router = createRouter({ routeTree });
+
+// Register the router instance for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router;
+  }
 }
 
-export default App;
+// Render the app
+const rootElement = document.getElementById('app')!;
+if (!rootElement.innerHTML) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>,
+  );
+}

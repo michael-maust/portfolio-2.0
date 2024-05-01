@@ -8,12 +8,16 @@
     "build": "tsc && vite build",
     "lint": "eslint portfolio-2 --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "routes": "yarn tsr generate"
   },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.12",
     "@tanstack/react-router": "^1.31.3",
+    "@tanstack/router-cli": "^1.30.0",
+    "@tanstack/router-devtools": "^1.31.3",
+    "@tanstack/router-vite-plugin": "^1.30.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.1.7",
     "react": "^18.2.0",
