@@ -2,6 +2,7 @@
 
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     fontSize: {
       xs: '0.75rem',
@@ -127,32 +128,18 @@ module.exports = {
       },
 
       keyframes: {
-        cycle: {
-          '0%': {
-            content: 'Corgi',
-            transform: 'translateX(0)',
+        aurora: {
+          from: {
+            backgroundPosition: '50% 50%, 50% 50%',
           },
-          '25%': {
-            content: 'Shih Tzu',
-            transform: 'translateX(100%)',
-          },
-          '50%': {
-            content: 'Pug',
-            transform: 'translateX(200%)',
-          },
-          '75%': {
-            content: 'Dachshund',
-            transform: 'translateX(300%)',
-          },
-          '100%': {
-            content: 'Corgi',
-            transform: 'translateX(400%)',
+          to: {
+            backgroundPosition: '350% 50%, 350% 50%',
           },
         },
       },
 
       animation: {
-        cycle: 'cycle 3s linear infinite',
+        aurora: 'aurora 60s linear infinite',
       },
     },
   },

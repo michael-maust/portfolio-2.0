@@ -12,7 +12,7 @@ export enum Section {
 
 export function Header() {
   return (
-    <header className="fixed flex justify-center items-center top-3 inset right-auto w-full p-4 ">
+    <header className="fixed flex justify-center items-center top-3 inset right-auto w-full p-4 z-100">
       <nav className="flex justify-between items-center p-3 pl-4 pr-6 bg-gray max-w-screen-xl w-full border-2 border-gray-900 shadow-lg rounded-full backdrop-filter backdrop-blur-[10px] bg-opacity-50 gray">
         <Link to="/">
           <img src={logo} alt="Logo" className="min-h-10 min-w-20" />
