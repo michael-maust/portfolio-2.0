@@ -16,8 +16,9 @@ export function NavLink({ children, ...props }: NavLinkProps) {
           {children}
           {isActive ? (
             <motion.div
+              layout
               layoutId="underline"
-              className="absolute bg-gray-300 inset-0 w-[calc(100%+24px)] -left-3 px-auto h-full z-[-1] backdrop-filter backdrop-blur-[10px] bg-opacity-20 rounded-full"
+              className="absolute bg-white-300 inset-0 w-[calc(100%+24px)] -left-3 px-auto h-full z-[-1] backdrop-filter backdrop-blur-[10px] bg-opacity-20 rounded-full"
             />
           ) : null}
         </>

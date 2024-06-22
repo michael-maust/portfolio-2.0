@@ -1,52 +1,77 @@
-import type { ReactNode, HTMLProps } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { cn } from 'utils/cn';
 
-type AuroraBackgroundProps = HTMLProps<HTMLDivElement> & {
-  children: ReactNode;
-  showRadialGradient?: boolean;
-};
-
-export const AuroraBackground = ({
-  className,
+export const BackgroundGradient = ({
   children,
-  showRadialGradient = true,
-  ...props
-}: AuroraBackgroundProps) => {
+  className,
+  containerClassName,
+  animate = true,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+  containerClassName?: string;
+  animate?: boolean;
+}) => {
+  const variants = {
+    initial: {
+      backgroundPosition: '0 50%',
+    },
+    animate: {
+      backgroundPosition: ['0, 50%', '100% 50%', '0 50%'],
+    },
+  };
   return (
-    <main>
-      <div
+    <div
+      className={cn(
+        'relative p-[4px] group w-full h-full min-h-screen min-w-screen',
+        containerClassName,
+      )}
+    >
+      <motion.div
+        variants={animate ? variants : undefined}
+        initial={animate ? 'initial' : undefined}
+        animate={animate ? 'animate' : undefined}
+        transition={
+          animate
+            ? {
+                duration: 5,
+                repeat: Infinity,
+                repeatType: 'reverse',
+              }
+            : undefined
+        }
+        style={{
+          backgroundSize: animate ? '400% 400%' : undefined,
+        }}
         className={cn(
-          'fixed flex flex-col w-screen  h-screen items-center justify-center bg-zinc-50 dark:bg-zinc-900  text-slate-950 transition-bg',
-          className,
+          'absolute inset-0 z-[1] opacity-60 group-hover:opacity-100 blur-xl transition duration-500 will-change-transform',
+          'bg-[radial-gradient(circle_farthest-side_at_0_100%,#00ccb1,transparent),radial-gradient(circle_farthest-side_at_100%_0,#7b61ff,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#ffc414,transparent),radial-gradient(circle_farthest-side_at_0_0,#1ca0fb,#141316)]',
         )}
-        {...props}
-      >
-        <div className="absolute inset-0 overflow-hidden">
-          <div
-            className={cn(
-              `
-            [--white-gradient:repeating-linear-gradient(100deg,#FFFFFF_0%,#FFFFFF_7%,transparent_10%,transparent_12%,#FFFFFF_16%)]
-            [--dark-gradient:repeating-linear-gradient(100deg,#000000_0%,#000000_7%,transparent_10%,transparent_12%,#000000_16%)]
-            [--aurora:repeating-linear-gradient(100deg,#0000FF_10%,#4B0082_15%,#ADD8E6_20%,#EE82EE_25%,#0000CD_30%)]
-            [background-image:var(--white-gradient),var(--aurora)]
-            dark:[background-image:var(--dark-gradient),var(--aurora)]
-            [background-size:300%,_200%]
-            [background-position:50%_50%,50%_50%]
-            filter blur-[10px] invert dark:invert-0
-            after:content-[""] after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)]
-            after:dark:[background-image:var(--dark-gradient),var(--aurora)]
-            after:[background-size:200%,_100%]
-            after:animate-aurora after:[background-attachment:fixed] after:mix-blend-difference
-            pointer-events-none
-            absolute -inset-[10px] opacity-50 will-change-transform`,
+      />
+      <motion.div
+        variants={animate ? variants : undefined}
+        initial={animate ? 'initial' : undefined}
+        animate={animate ? 'animate' : undefined}
+        transition={
+          animate
+            ? {
+                duration: 5,
+                repeat: Infinity,
+                repeatType: 'reverse',
+              }
+            : undefined
+        }
+        style={{
+          backgroundSize: animate ? '400% 400%' : undefined,
+        }}
+        className={cn(
+          'absolute inset-0 z-[1] will-change-transform',
+          'bg-[radial-gradient(circle_farthest-side_at_0_100%,#00ccb1,transparent),radial-gradient(circle_farthest-side_at_100%_0,#7b61ff,transparent),radial-gradient(circle_farthest-side_at_100%_100%,#ffc414,transparent),radial-gradient(circle_farthest-side_at_0_0,#1ca0fb,#141316)]',
+        )}
+      />
 
-              showRadialGradient &&
-                `[mask-image:radial-gradient(ellipse_at_100%_0%,#000000_10%,transparent_70%)]`,
-            )}
-          ></div>
-        </div>
-        {children}
-      </div>
-    </main>
+      <div className={cn('relative z-10', className)}>{children}</div>
+    </div>
   );
 };
